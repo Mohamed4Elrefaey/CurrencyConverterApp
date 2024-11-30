@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var resultEt: TextInputEditText
     lateinit var dropDown1: AutoCompleteTextView
     lateinit var to_Drop_Down_Menu: AutoCompleteTextView
-//  lateinit var toolbar: Toolbar
+  lateinit var toolbar: Toolbar
 
     /* before i declare to the toolbar section
      the app was work well and then it does not work ,
@@ -57,28 +57,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         views()
         menu()
-  /*      toolbar.inflateMenu(R.menu.options_menu)
+        toolbar.inflateMenu(R.menu.options_menu)
         toolbar.setOnMenuItemClickListener(){  menuItem ->
-            if (menuItem.itemId == R.id.share_action) {
-                Toast.makeText(this, "share clicked ", Toast.LENGTH_SHORT).show()
-                Log.d(TAG, "share clicked")
-                true
+            when {
+                menuItem.itemId == R.id.share_action -> {
+                    Toast.makeText(this, "share clicked ", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                menuItem.itemId == R.id.setting_action -> {
+                    Toast.makeText(this, "setting clicked ", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                menuItem.itemId == R.id.contact_action -> {
+                    Toast.makeText(this, "Contact us clicked ", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
             }
-            else if (menuItem.itemId == R.id.setting_action) {
-                Toast.makeText(this, "setting clicked ", Toast.LENGTH_SHORT).show()
-                Log.d(TAG, "setting clicked ")
-                true
-            }
-            else if (menuItem.itemId == R.id.contact_action) {
-                Toast.makeText(this, "Contact us clicked ", Toast.LENGTH_SHORT).show()
-                Log.d(TAG, "Contact us clicked")
-
-                true
-            }
-            else false
         }
 
-   */
+
 
         amountEt.doAfterTextChanged { calculateResult() }
         dropDown1.setOnClickListener() {
@@ -110,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         resultEt = findViewById(R.id.result_edit_text)
         dropDown1 = findViewById(R.id.first_autocomplete_textview)
         to_Drop_Down_Menu = findViewById(R.id.to_menu)
-//        toolbar = findViewById(R.id.toolbar2)
+        toolbar = findViewById(R.id.toolbar2)
     }
 
     fun menu() {
