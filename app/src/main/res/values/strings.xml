@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CurrencyConverterApp</string>
+    <string name="Currency">CurrencyConverter</string>
+    <string name="From">From</string>
+    <string name="TO">To</string>
+    <string name="Amount">amount</string>
+    <string name="SelectCurrency">select currency</string>
+    <string name="Result">Result</string>
+    <string name="Convert">convert</string>
+    <string name="Convertedamount">converted amount</string>
+    <string name="doller">American Dollar</string>
+    <string name="egyption">Egyption pound</string>
+</resources>
