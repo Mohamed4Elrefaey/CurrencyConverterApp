@@ -32,7 +32,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var resultEt: TextInputEditText
     lateinit var dropDown1: AutoCompleteTextView
     lateinit var to_Drop_Down_Menu: AutoCompleteTextView
-//    lateinit var toolbar: Toolbar
+//  lateinit var toolbar: Toolbar
+
+    /* before i declare to the toolbar section
+     the app was work well and then it does not work ,
+     by the way this is the first time i use the options menu
+     and add toolbar may be i did something wrong.
+     */
+
+
 
     var values = mapOf(
         americanDollar to 1.0,
@@ -49,27 +57,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         views()
         menu()
-//        toolbar.inflateMenu(R.menu.options_menu)
-//        toolbar.setOnMenuItemClickListener(){  menuItem ->
-//            if (menuItem.itemId == R.id.share_action) {
-//                Toast.makeText(this, "share clicked ", Toast.LENGTH_SHORT).show()
-//                Log.d(TAG, "share clicked")
-//                true
-//            }
-//            else if (menuItem.itemId == R.id.setting_action) {
-//                Toast.makeText(this, "setting clicked ", Toast.LENGTH_SHORT).show()
-//                Log.d(TAG, "setting clicked ")
-//                true
-//            }
-//            else if (menuItem.itemId == R.id.contact_action) {
-//                Toast.makeText(this, "Contact us clicked ", Toast.LENGTH_SHORT).show()
-//                Log.d(TAG, "Contact us clicked")
-//
-//                true
-//            }
-//            else false
-//        }
+  /*      toolbar.inflateMenu(R.menu.options_menu)
+        toolbar.setOnMenuItemClickListener(){  menuItem ->
+            if (menuItem.itemId == R.id.share_action) {
+                Toast.makeText(this, "share clicked ", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "share clicked")
+                true
+            }
+            else if (menuItem.itemId == R.id.setting_action) {
+                Toast.makeText(this, "setting clicked ", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "setting clicked ")
+                true
+            }
+            else if (menuItem.itemId == R.id.contact_action) {
+                Toast.makeText(this, "Contact us clicked ", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "Contact us clicked")
 
+                true
+            }
+            else false
+        }
+
+   */
 
         amountEt.doAfterTextChanged { calculateResult() }
         dropDown1.setOnClickListener() {
