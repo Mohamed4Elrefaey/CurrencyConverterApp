@@ -2,6 +2,7 @@ package com.example.currencyconverterapp
 
 import android.R.menu
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -32,13 +33,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var resultEt: TextInputEditText
     lateinit var dropDown1: AutoCompleteTextView
     lateinit var to_Drop_Down_Menu: AutoCompleteTextView
-  lateinit var toolbar: Toolbar
+    lateinit var toolbar: Toolbar
 
-    /* before i declare to the toolbar section
-     the app was work well and then it does not work ,
-     by the way this is the first time i use the options menu
-     and add toolbar may be i did something wrong.
-     */
 
 
 
@@ -61,17 +57,23 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener(){  menuItem ->
             when {
                 menuItem.itemId == R.id.share_action -> {
-                    Toast.makeText(this, "share clicked ", Toast.LENGTH_SHORT).show()
+
+                    var message = "${amountEt.text.toString()} ${dropDown1.text.toString()}" +
+                            " is equal ${resultEt.text.toString()} ${to_Drop_Down_Menu.text.toString()}"
+                    var shareAction = Intent(Intent.ACTION_SEND)
+                    shareAction.type = "text/plain"
+                    shareAction.putExtra(Intent.EXTRA_TEXT,message)
+
+                    if (shareAction.resolveActivity(packageManager) != null){
+                        startActivity(shareAction)
+                    }
+                    else{
+                        Toast.makeText(this, "you have not an app in your device to share the message", Toast.LENGTH_SHORT).show()
+                    }
+
                     true
                 }
-                menuItem.itemId == R.id.setting_action -> {
-                    Toast.makeText(this, "setting clicked ", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                menuItem.itemId == R.id.contact_action -> {
-                    Toast.makeText(this, "Contact us clicked ", Toast.LENGTH_SHORT).show()
-                    true
-                }
+
                 else -> false
             }
         }
